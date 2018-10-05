@@ -1,0 +1,23 @@
+{
+  "name": "cyborg-sports-analytics",
+  "version": "1.0",
+  "sassLintConfig": "sasslint.yml",
+  "description": "Cyborg Sports Analitycs Website",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suabochica/cyborg-sports-analytics",
+  },
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack -p"
+  },
+  "author": "Cyborg Sports",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "sass-lint": "^1.12.0",
+    "webpack": "^4.16.5",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
