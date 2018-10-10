@@ -2,4 +2,5 @@
 Repository to the Cyborg Sports Analytics project
 
 ## authors
-+ Lucas benjamin
++ Lucas Benjamin Stucky
++ Sergio Leonardo Benítez
