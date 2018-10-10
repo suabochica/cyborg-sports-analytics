@@ -1,5 +1,5 @@
 # cyborg-sports-analytics
-> Analálisis de datos complejos para la toma de decisiones
+> Análisis de datos complejos para la toma de decisiones
 
 Repository to the Cyborg Sports Analytics project
 
