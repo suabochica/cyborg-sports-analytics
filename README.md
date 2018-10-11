@@ -1,11 +1,31 @@
-# cyborg-sports-analytics
-> Análisis de datos complejos para la toma de decisiones
+# hello-vue
 
-Repository to the Cyborg Sports Analytics project
+## Project setup
+```
+npm install
+```
 
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
+### Compiles and minifies for production
+```
+npm run build
+```
 
-## Authors
-+ Lucas Benjamin Stucky
-+ Sergio Leonardo Benítez
-+ Javier Ospina Castro
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```

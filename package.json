@@ -1,29 +1,25 @@
 {
   "name": "cyborg-sports-analytics",
-  "version": "1.0",
-  "sassLintConfig": "sasslint.yml",
-  "description": "Cyborg Sports Analitycs Website",
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/suabochica/cyborg-sports-analytics",
-  },
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack -p"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
   },
-  "author": "Cyborg Sports",
-  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  },
   "devDependencies": {
-    "eslint": "^4.17.0",
-    "sass-lint": "^1.12.0",
-    "css-loader": "^0.23.1",
-    "node-sass": "^4.1.1",
-    "sass-loader": "^3.2.3",
-    "style-loader": "^0.13.1",
-    "vue-loader": "^9.0.0",
-    "vue-router": "^2.1.1",
-    "webpack": "^4.16.5",
-    "webpack-dev-server": "^3.1.9"
+    "@vue/cli-plugin-eslint": "^3.0.5",
+    "@vue/cli-plugin-unit-jest": "^3.0.5",
+    "@vue/cli-service": "^3.0.5",
+    "@vue/eslint-config-prettier": "^3.0.5",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.17"
   }
 }
