@@ -1,7 +1,8 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import "./assets/fonts/fonts.scss"
+import "./assets/styles/main.scss";
+import "./assets/fonts/fonts.scss";
 
 Vue.config.productionTip = false;
 
