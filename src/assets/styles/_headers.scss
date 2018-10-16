@@ -12,6 +12,11 @@ body {
   font-family: 'Fira Sans';
   font-weight: 400;
   line-height: 1.45;
+  padding: 0 16px;
+
+  @include breakpoint(desktop) {
+    padding: 0;
+  }
 }
 
 p {
