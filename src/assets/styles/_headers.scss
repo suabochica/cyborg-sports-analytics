@@ -1,5 +1,9 @@
 html {
-  font-size: 1em;
+  font-size: 14px;
+
+  @include breakpoint(desktop) {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -12,7 +16,12 @@ body {
 
 p {
   margin-bottom: 1.3em;
+  font-size: 1.5em;
   font-weight: normal;
+
+  @include breakpoint(desktop) {
+    font-size: 1em;
+  }
 }
 
 h1, h2, h3, h4 {

@@ -1,9 +1,10 @@
 <template>
   <div class="landing">
     <h1>{{ msg }}</h1>
-    <p>
-      Análisis complejos aplicados en estrategias y entrenamientos deportivos.
-    </p>
+    <h4>Análisis complejos de datos aplicados en estrategias y entrenamientos deportivos.</h4>
+    <section class="landing__section--mision">
+      <p>Utilizamos la tecnología aplicada al deporte para analizar situaciones y rendimientos, permitiendo al usuario entender la situación actual y desarrollar estrategias a partir de estadísticas de datos complejos. A través de la innovación tecnología desarrollamos herramientas que generan una ventaja competitiva en el deporte y la vida. Nos fundamentamos en el esfuerzo y la pasión.</p>
+    </section>
   </div>
 </template>
 
@@ -20,21 +21,24 @@ export default {
 <style scoped lang="scss">
 @import "../assets/styles/main.scss";
 
-h3 {
-  margin: 40px 0 0;
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+  width: 100%;
+
+  @include breakpoint(desktop) {
+    margin: 0 auto;
+    max-width: 640px;
+  }
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+h4 {
+  font-style: italic;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: $bluelagoon;
+.landing__section--mision {
+  text-align: left;
 }
 </style>
