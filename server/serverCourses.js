@@ -7,6 +7,9 @@ var gqlSchema = buildSchema(`
     course(id: Int!): Course
     courses(topic: String): [Course]
   },
+  type Mutation {
+    updateCourseTopic(id: Int!, topic: String!): Course
+  },
   type Course {
     id: Int
     title: String
@@ -62,9 +65,22 @@ var getCourses = function(args) {
   }
 }
 
+var updateCourseTopic = function({id, topic}) {
+  coursesData.map(course => {
+    if(course.id === id) {
+      course.topic = topic
+
+      return course
+    }
+  })
+
+  return coursesData.filter(course => course.id === id)[0]
+}
+
 var gqlRoot = {
   course: getCourse,
-  courses: getCourses
+  courses: getCourses,
+  updateCourseTopic: updateCourseTopic
 }
 
 var app = express();
