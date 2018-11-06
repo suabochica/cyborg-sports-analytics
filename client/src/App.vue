@@ -6,6 +6,12 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <h3>Example 1</h3>
+    <div>
+        Data: {{ example1 }}
+    </div>
+    <button @click="getLanguage">Get Language</button>
+    <hr>
   </div>
 </template>
 
@@ -33,3 +39,30 @@
   }
 }
 </style>
+
+<script>
+import axios from 'axios'
+
+export default {
+  name: 'app',
+
+  data() {
+    return {
+      example1: ''
+    }
+  },
+
+  methods: {
+    async getLanguage() {
+      try {
+        const response = await axios.post('http://localhost:4000/graphql', {
+          query: '{ language }'
+        })
+        this.example1 = response.data.data.language
+      } catch (error) {
+        console.log('warning'. error)
+      }
+    }
+  }
+}
+</script>
