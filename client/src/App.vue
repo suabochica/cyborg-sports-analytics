@@ -6,11 +6,22 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+
     <h3>Example 1</h3>
     <div>
-        Data: {{ example1 }}
+      Data: {{ example1 }}
     </div>
     <button @click="getLanguage">Get Language</button>
+    <hr>
+
+    <h3>Example 2</h3>
+    <div>
+      Data:
+      <div v-for="champion in champions" v-bind:key="champion">
+        {{ champion }}
+      </div>
+    </div>
+    <button @click="getChampions">Get Champions</button>
     <hr>
   </div>
 </template>
@@ -41,28 +52,42 @@
 </style>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  name: 'app',
+  name: "app",
 
   data() {
     return {
-      example1: ''
-    }
+      example1: "",
+      champions: []
+    };
   },
 
   methods: {
     async getLanguage() {
       try {
-        const response = await axios.post('http://localhost:4000/graphql', {
-          query: '{ language }'
-        })
-        this.example1 = response.data.data.language
+        const response = await axios.post("http://localhost:4000/graphql", {
+          query: "{ language }"
+        });
+
+        this.example1 = response.data.data.language;
       } catch (error) {
-        console.log('warning'. error)
+        console.log("warning", error);
       }
+    },
+
+    async getChampions() {
+      const response = await axios.post("http://localhost:4000/graphql", {
+        query: `{
+          getChampions {
+            name
+          }
+        }`
+      });
+
+      this.champions = response.data.data;
     }
   }
-}
+};
 </script>
