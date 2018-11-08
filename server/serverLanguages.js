@@ -8,6 +8,7 @@ var gqlSchema = buildSchema(`
   type Query {
     language: String
     getChampions: [Champion]
+    getChampionByName(name: String!): Champion
   }
 
   type Champion {
@@ -23,7 +24,10 @@ const champions = [
 
 var gqlRoot = {
   language: () => 'Hello World GraphQL!',
-  getChampions: () => champions
+  getChampions: () => champions,
+  getChampionByName: ({ name }) => {
+    return champions.find(champion => champion.name === name)
+  }
 }
 
 var app = express()
