@@ -11,6 +11,10 @@ var gqlSchema = buildSchema(`
     getChampionByName(name: String!): Champion
   }
 
+  type Mutation {
+    updateAttackDamage(name: String!, attackDamage: Float): Champion
+  }
+
   type Champion {
     name: String
     attackDamage: Float
@@ -24,14 +28,22 @@ const champions = [
 
 var gqlRoot = {
   language: () => 'Hello World GraphQL!',
+
   getChampions: () => champions,
+
   getChampionByName: ({ name }) => {
     return champions.find(champion => champion.name === name)
+  },
+
+  updateAttackDamage: ({ name, attackDamage = 150 }) => {
+    const champion = champions.find(champion => champion.name === name)
+    champion.attackDamage = attackDamage
+
+    return champion
   }
 }
 
 var app = express()
-
 
 app.use(cors())
 

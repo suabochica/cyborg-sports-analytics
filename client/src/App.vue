@@ -34,6 +34,18 @@
     </div>
     <button @click="getChampionByName">Get Champion</button>
     <hr>
+
+    <h3>Example 4</h3>
+    Name: <input v-model="name">
+    Attack Damage: <input v-model.number="attack">
+    <div>
+      Data:
+      <div>
+        {{ updatedChampion }}
+      </div>
+    </div>
+    <button @click="updateAttackDamage">Update Champion</button>
+    <hr>
   </div>
 </template>
 
@@ -72,7 +84,10 @@ export default {
     return {
       example1: "",
       champions: [],
-      champion: {}
+      champion: {},
+      updatedChampion: {},
+      name: "Ashe",
+      attack: 5.5
     };
   },
 
@@ -117,6 +132,25 @@ export default {
       });
 
       this.champion = response.data.data.getChampionByName;
+    },
+
+    async updateAttackDamage() {
+      const response = await axios.post("http://localhost:4000/graphql", {
+        query: `
+          mutation updateAttackDamage($championName: String!, $attackDamage: Float) {
+            updateAttackDamage(name: $championName, attackDamage: $attackDamage) {
+              name
+              attackDamage
+            }
+          }
+        `,
+        variables: {
+          championName: this.name,
+          attackDamage: this.attack
+        }
+      });
+
+      this.updatedChampion = response.data.data.updateAttackDamage;
     }
   }
 };
