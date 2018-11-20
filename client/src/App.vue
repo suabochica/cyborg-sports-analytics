@@ -36,7 +36,7 @@
     <hr>
 
     <h3>Example 4</h3>
-    Name: <input v-model="name">
+    Name: <input v-model="championName">
     Attack Damage: <input v-model.number="attack">
     <div>
       Data:
@@ -87,6 +87,7 @@ export default {
       champion: {},
       updatedChampion: {},
       name: "Ashe",
+      championName: "Ashe",
       attack: 5.5
     };
   },
@@ -127,7 +128,7 @@ export default {
           }
         `,
         variables: {
-          championName: "Ashe"
+          championName: this.name
         }
       });
 
@@ -145,7 +146,7 @@ export default {
           }
         `,
         variables: {
-          championName: this.name,
+          championName: this.championName,
           attackDamage: this.attack
         }
       });
