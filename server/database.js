@@ -1,6 +1,4 @@
-'use strict';
-
-var mysql = require('mysql');
+import Sequelize from 'sequelize'
 
 // local MySQL database connection
 var connection = mysql.createConnection({
