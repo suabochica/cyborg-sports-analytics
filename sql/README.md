@@ -23,10 +23,10 @@ Connect to mysql server with the `root` user
 Create database and user to the database
 
 ```sql
-    CREATE DATABASE esgrima;
-    CREATE USER 'bos_user'@'localhost' IDENTIFIED BY 'password';
-    GRANT ALL PRIVILEGES ON esgrima.* TO 'bos_user'@'localhost';
-    FLUSH PRIVILEGES;
+CREATE DATABASE esgrima;
+CREATE USER 'bos_user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON esgrima.* TO 'bos_user'@'localhost';
+FLUSH PRIVILEGES;
 ```
 
 Connect to mysql server with the `bos_user`
@@ -36,7 +36,7 @@ Connect to mysql server with the `bos_user`
 Asociate the `esgrima` database with the `bos_user`
 
 ```sql
-    USE esgrima;
+USE esgrima;
 ```
 
 Import database from `.sql` file:
@@ -46,5 +46,12 @@ Import database from `.sql` file:
 To check the tables of the database run:
 
 ```sql
-    SHOW TABLES;
+SHOW TABLES;
+```
+
+To solve mysql 8.0 `Client does not support authentication protocol requested by server; consider upgrading MySQL client`, in mysql run the next query
+
+```sql
+ALTER USER 'bos_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'bos_****';
+FLUSH PRIVILEGES;
 ```
