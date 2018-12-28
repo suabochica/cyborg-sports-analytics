@@ -1,15 +1,88 @@
 import Sequelize from 'sequelize'
 
 // local MySQL database connection
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'esgrima'
-})
+const sequelize = new Sequelize(
+  'esgrima',
+  'bos_user',
+  'bos_password',
+  {
+    host: 'localhost',
+    user: 'mysql'
+  }
+)
 
-connection.connect(function(error) {
-  if (error) throw error;
-});
+// Create the Sequelize models
+const Esgrimista = sequelize.define(
+  'esgrimista',
+  {
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    lastName: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    pais: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+  }
+)
 
-module.exports = connection;
+const AccionReaccion = sequelize.define(
+  'accion_reaccion',
+  {
+    quien_inicia: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    accion: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    reaccion: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    toque: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    zona: {
+      type: Sequelize.NUMBER,
+      allowNull: false,
+    },
+    observación: {
+      type: Sequelize.NUMBER,
+      allowNull: false,
+    },
+  }
+)
+
+const Combate = sequelize.define(
+  'combate',
+  {
+    esgrimistaA: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    esgrimistaB: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+  }
+)
+
+// Relationships
+// TODO: Talk with Tian about these relations
+
+// Test the connection
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.')
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err)
+  });

@@ -15,7 +15,7 @@ var gqlRoot = {
 
 var app = express()
 
-// local MySQL database connection
+/* local MySQL database connection
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'bos_user',
@@ -35,7 +35,7 @@ connection.query('SELECT * FROM accion_reaccion', function(error, result, fields
 
   console.log(result);
 });
-
+*/
 app.use ('/graphql', express_graphql({
   schema: gqlSchema,
   rootValue: gqlRoot,

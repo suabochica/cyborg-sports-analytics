@@ -33,7 +33,7 @@ Connect to mysql server with the `bos_user`
 
     $ mysql -ubos_user -p
 
-Asociate the `esgrima` database with the `bos_user`
+Associate the `esgrima` database with the `bos_user`
 
 ```sql
 USE esgrima;
