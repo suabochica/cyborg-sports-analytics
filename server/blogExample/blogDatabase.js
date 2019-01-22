@@ -88,3 +88,5 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err)
   });
+
+  // TODO: Create the SQL Database. Minute 16:20 of the video.
