@@ -38,4 +38,33 @@ const Person = new GraphQLObjectType({
   },
 })
 
-// TODO: Define the Post Schema. Minute 19:40 of the video.
+// Define the Post Schema. Minute 19:40 of the video.
+const Post = new GraphQLObjectType({
+  name: 'Post',
+  description: 'This is a Post',
+  fields: () => {
+    return {
+      id: {
+        type: GraphQLInt,
+        resolve(post) {
+          return post.id
+        }
+      },
+      title: {
+        type: GraphQLString,
+        resolve(post) {
+          return post.title
+        }
+      },
+      content: {
+        type: GraphQLString,
+        resolve(post) {
+          return post.content
+        }
+      },
+    }
+  },
+})
+
+// TODO: Create the root query. Minute 20:48 of the video.
+// TODO: Create the Schema. Minute 25:36 of the video. Use the GraphQLList
