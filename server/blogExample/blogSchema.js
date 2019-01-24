@@ -1,7 +1,9 @@
 import {
+  GraphQLSchema,
   GraphQLObjectType,
   GraphQLInt,
   GraphQLString,
+  GraphQLList,
 } from 'graphql'
 import blogDatabase from './blogDatabase'
 
@@ -66,5 +68,35 @@ const Post = new GraphQLObjectType({
   },
 })
 
-// TODO: Create the root query. Minute 20:48 of the video.
-// TODO: Create the Schema. Minute 25:36 of the video. Use the GraphQLList
+// Create the root query, starter point to GraphQL for give shape to the data . Minute 20:48 of the video.
+const Query = new GraphQLObjectType({
+  name: 'Query',
+  description: 'This is a root query',
+  fields: () => {
+    return {
+      people: {
+        type: new GraphQLList(Person),
+        args: {
+          id: {
+            type: GraphQLInt,
+          },
+          email: {
+            type: GraphQLString,
+          },
+        },
+        // You should define what args you expected to prevent security issues
+        resolve(root, args) {
+          return blogDatabase.models.person.findAll({where:args})
+        }
+      }
+    }
+  }
+})
+
+// Create the Schema. Minute 25:36 of the video. Use the GraphQLList
+
+const Schema = new GraphQLSchema({
+  query: Query
+})
+
+export default Schema

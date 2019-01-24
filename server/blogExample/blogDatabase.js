@@ -7,7 +7,7 @@ import Faker from 'faker' // Generate massive amounts of realistic fake data in 
  * @params: database, username, password
  */
 const sequelize = new Sequelize(
-  'relay',
+  'blog',
   'bos_user',
   'bos_password',
   {
