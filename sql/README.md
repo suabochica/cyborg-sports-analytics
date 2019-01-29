@@ -63,11 +63,11 @@ Query to show table columns:
 DESCRIBE [table_name]
 ```
 
-Query to load data from a `.csv` file:
+Query to load data from a `.csv` file after use a database:
 
 ```sql
-LOAD DATA INFILE '~/Desktop/persons.csv'
-INTO TABLE persons
+LOAD DATA INFILE '[~/path/to/file.csv]'
+INTO TABLE [table_name]
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
