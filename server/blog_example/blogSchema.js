@@ -58,6 +58,7 @@ const Post = new graphql.GraphQLObjectType({
           return post.content
         }
       },
+      // TODO: Relate a person with a post. Minute 33:40 of the video.
     }
   },
 })
@@ -80,12 +81,20 @@ const Query = new graphql.GraphQLObjectType({
         },
         // You should define what args you expected to prevent security issues
         resolve(root, args) {
-          return blogDatabase.models.person.findAll({where:args})
+          return blogDatabase.models.person.findAll({where: args})
+        }
+      },
+      posts: {
+        type: new graphql.GraphQLList(Post),
+        resolve(root, args) {
+          return blogDatabase.models.post.findAll({where: args})
         }
       }
     }
   }
 })
+
+// TODO: Introduction to Mutation concept in GraphQL. Minute 37:00 of the video.
 
 // Create the Schema. Minute 25:36 of the video. Use the GraphQLList
 const Schema = new graphql.GraphQLSchema({

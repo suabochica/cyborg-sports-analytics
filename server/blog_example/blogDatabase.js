@@ -23,11 +23,11 @@ const sequelizeConnection = new Sequelize(
 const Person = sequelizeConnection.define(
   'person',
   {
-    first_name: {
+    firstName: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    last_name: {
+    lastName: {
       type: Sequelize.STRING,
       allowNull: false,
     },
@@ -67,13 +67,13 @@ sequelizeConnection.sync({force: true})
   .then(() => {
     _.times(10, () => {
       return Person.create({
-        first_name: Faker.name.firstName(),
-        last_name: Faker.name.lastName(),
+        firstName: Faker.name.firstName(),
+        lastName: Faker.name.lastName(),
         email: Faker.internet.email(),
       })
       .then(person => {
         return person.createPost({
-          title: `Sample post by ${person.first_name}`,
+          title: `Sample post by ${person.firstName}`,
           content: 'Here is some content',
         })
       })
