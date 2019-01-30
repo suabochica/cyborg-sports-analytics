@@ -1,37 +1,31 @@
-import {
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLInt,
-  GraphQLString,
-  GraphQLList,
-} from 'graphql'
-import blogDatabase from './blogDatabase'
+const graphql = require('graphql')
+const blogDatabase = require('./blogDatabase')
 
-const Person = new GraphQLObjectType({
+const Person = new graphql.GraphQLObjectType({
   name: 'Person',
   description: 'This represent a Person',
   fields: () => {
     return {
       id: {
-        type: GraphQLInt,
+        type: graphql.GraphQLInt,
         resolve(person) {
           return person.id
         }
       },
       firstName: {
-        type: GraphQLString,
+        type: graphql.GraphQLString,
         resolve(person) {
           return person.firstName
         }
       },
       lastName: {
-        type: GraphQLString,
+        type: graphql.GraphQLString,
         resolve(person) {
           return person.lastName
         }
       },
       email: {
-        type: GraphQLString,
+        type: graphql.GraphQLString,
         resolve(person) {
           return person.email
         }
@@ -41,25 +35,25 @@ const Person = new GraphQLObjectType({
 })
 
 // Define the Post Schema. Minute 19:40 of the video.
-const Post = new GraphQLObjectType({
+const Post = new graphql.GraphQLObjectType({
   name: 'Post',
   description: 'This is a Post',
   fields: () => {
     return {
       id: {
-        type: GraphQLInt,
+        type: graphql.GraphQLInt,
         resolve(post) {
           return post.id
         }
       },
       title: {
-        type: GraphQLString,
+        type: graphql.GraphQLString,
         resolve(post) {
           return post.title
         }
       },
       content: {
-        type: GraphQLString,
+        type: graphql.GraphQLString,
         resolve(post) {
           return post.content
         }
@@ -68,20 +62,20 @@ const Post = new GraphQLObjectType({
   },
 })
 
-// Create the root query, starter point to GraphQL for give shape to the data . Minute 20:48 of the video.
-const Query = new GraphQLObjectType({
+// Create the root query, starter point to GraphQL for give shape to the data. Minute 20:48 of the video.
+const Query = new graphql.GraphQLObjectType({
   name: 'Query',
   description: 'This is a root query',
   fields: () => {
     return {
       people: {
-        type: new GraphQLList(Person),
+        type: new graphql.GraphQLList(Person),
         args: {
           id: {
-            type: GraphQLInt,
+            type: graphql.GraphQLInt,
           },
           email: {
-            type: GraphQLString,
+            type: graphql.GraphQLString,
           },
         },
         // You should define what args you expected to prevent security issues
@@ -94,9 +88,8 @@ const Query = new GraphQLObjectType({
 })
 
 // Create the Schema. Minute 25:36 of the video. Use the GraphQLList
-
-const Schema = new GraphQLSchema({
+const Schema = new graphql.GraphQLSchema({
   query: Query
 })
 
-export default Schema
+module.exports = Schema

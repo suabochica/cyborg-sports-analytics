@@ -1,7 +1,7 @@
-import Express from 'express';
-import GraphHTTP from 'express-graphql';
+const Express = require('express')
+const GraphHTTP = require('express-graphql')
 
-import Schema from './blogSchema'
+const Schema = require('./blogSchema')
 
 // Create the Server. Minute 26:46 of the video.
 // Config

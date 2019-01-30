@@ -9,3 +9,5 @@ npm install
 ```
 node serve.js
 ```
+
+> Note: The code in this node server support ES5.
