@@ -78,10 +78,10 @@ IGNORE 1 ROWS;
 
 ## Blog Database Queries
 
-Query to create the `persons` table:
+Query to create the `people` table:
 
 ```sql
-CREATE TABLE IF NOT EXISTS persons (
+CREATE TABLE IF NOT EXISTS people (
     person_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
