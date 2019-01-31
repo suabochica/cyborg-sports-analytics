@@ -1,6 +1,7 @@
 const graphql = require('graphql')
 const blogDatabase = require('./blogDatabase')
 
+// Define the Person Schema. Minute 13:40 of the video.
 const Person = new graphql.GraphQLObjectType({
   name: 'Person',
   description: 'This represent a Person',
@@ -94,11 +95,41 @@ const Query = new graphql.GraphQLObjectType({
   }
 })
 
-// TODO: Introduction to Mutation concept in GraphQL. Minute 37:00 of the video.
+// Introduction to Mutation concept in GraphQL. Minute 37:00 of the video.
+const Mutation = new graphql.GraphQLObjectType({
+  name: "Mutation",
+  description: "function to create stuff",
+  fields() {
+    return {
+      addPerson: {
+        type: Person,
+        args: {
+          firstName: {
+            type: new graphql.GraphQLNonNull(graphql.GraphQLString),
+          },
+          lastName: {
+            type: new graphql.GraphQLNonNull(graphql.GraphQLString),
+          },
+          email: {
+            type: new graphql.GraphQLNonNull(graphql.GraphQLString),
+          },
+        },
+        resolve(_, args) {
+          return blogDatabase.models.person.create({
+            firstName: args.firstName,
+            lastName: args.lastName,
+            email: args.email.toLowerCase(),
+          })
+        }
+      }
+    }
+  }
+})
 
 // Create the Schema. Minute 25:36 of the video. Use the GraphQLList
 const Schema = new graphql.GraphQLSchema({
-  query: Query
+  query: Query,
+  mutation: Mutation
 })
 
 module.exports = Schema
