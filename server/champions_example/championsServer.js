@@ -35,6 +35,7 @@ var gqlRoot = {
 
   updateAttackDamage: ({ name, attackDamage = 150 }) => {
     const champion = champions.find(champion => champion.name === name)
+
     champion.attackDamage = attackDamage
 
     return champion

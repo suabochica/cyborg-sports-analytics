@@ -46,6 +46,16 @@
     </div>
     <button @click="updateAttackDamage">Update Champion</button>
     <hr>
+
+    <h3>Example 5</h3>
+    <div>
+      Data:
+      <div v-for="person in people" v-bind:key="person.id">
+        {{ person }}
+      </div>
+    </div>
+    <button @click="getPeople">Get People</button>
+    <hr>
   </div>
 </template>
 
@@ -88,7 +98,9 @@ export default {
       updatedChampion: {},
       name: "Ashe",
       championName: "Ashe",
-      attack: 5.5
+      attack: 5.5,
+      people: [],
+      person: {}
     };
   },
 
@@ -152,6 +164,20 @@ export default {
       });
 
       this.updatedChampion = response.data.data.updateAttackDamage;
+    },
+
+    async getPeople() {
+      const response = await axios.post("http://localhost:3000/graphql", {
+        query: `{
+          people {
+            id,
+            firstName,
+            lastName
+          }
+        }`
+      });
+
+      this.people = response.data.data;
     }
   }
 };
