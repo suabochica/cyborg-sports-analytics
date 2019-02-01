@@ -1,7 +1,7 @@
 const graphql = require('graphql')
 const blogDatabase = require('./blogDatabase')
 
-// Define the Person Schema. Minute 13:40 of the video.
+// Define the Person Type. Minute 13:40 of the video.
 const Person = new graphql.GraphQLObjectType({
   name: 'Person',
   description: 'This represent a Person',
@@ -35,7 +35,7 @@ const Person = new graphql.GraphQLObjectType({
   },
 })
 
-// Define the Post Schema. Minute 19:40 of the video.
+// Define the Post Type. Minute 19:40 of the video.
 const Post = new graphql.GraphQLObjectType({
   name: 'Post',
   description: 'This is a Post',

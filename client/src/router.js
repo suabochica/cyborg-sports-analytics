@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Reports from "./views/Reports.vue";
+import Courses from "./views/Courses.vue";
+import Champions from "./views/Champions.vue";
+import Blog from "./views/Blog.vue";
 
 Vue.use(Router);
 
@@ -15,9 +17,19 @@ export default new Router({
       component: Home
     },
     {
-      path: "/reports",
-      name: "reports",
-      component: Reports
+      path: "/courses",
+      name: "courses",
+      component: Courses
+    },
+    {
+      path: "/champions",
+      name: "champions",
+      component: Champions
+    },
+    {
+      path: "/blog",
+      name: "blog",
+      component: Blog
     },
     {
       path: "/about",

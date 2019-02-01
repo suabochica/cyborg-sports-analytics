@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/images/csa_symbol_test02.png">
-    <Landing msg="Cyborg Sports"/>
+    <Landing msg="Learning MEVN"/>
   </div>
 </template>
 
