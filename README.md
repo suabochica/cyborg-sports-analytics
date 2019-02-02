@@ -17,5 +17,5 @@ We will use:
 + [Scaffolding a NodeJS GraphQL API server](https://medium.com/@tomlagier/scaffolding-a-rock-solid-graphql-api-b651c2a36438)
 
 ## Refs: GraphQL example with databases
-+ [Repo: GraphQL with sequelize to integrate with relational database](https://github.com/leebenson/graphql-with-sequelize)
-+ [Video: GraphQL with sequelize to integrate with relational database](https://www.youtube.com/watch?v=DNPVqK_woRQ)
++ ~[Repo: GraphQL with sequelize to integrate with relational database](https://github.com/leebenson/graphql-with-sequelize)~
++ ~[Video: GraphQL with sequelize to integrate with relational database](https://www.youtube.com/watch?v=DNPVqK_woRQ)~

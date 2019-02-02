@@ -1,9 +1,16 @@
 <template>
-  <div class="landing">
+  <div class="content">
     <h1>{{ msg }}</h1>
-    <h4>Análisis complejo sobre datos aplicados en estrategias y entrenamientos deportivos.</h4>
-    <section class="landing__section--mision">
-      <p>Utilizamos la tecnología aplicada al deporte para analizar situaciones y rendimientos, permitiendo al usuario entender la situación actual y desarrollar estrategias a partir de estadísticas de datos complejos. A través de la innovación tecnología desarrollamos herramientas que generan una ventaja competitiva en el deporte y la vida. Nos fundamentamos en el esfuerzo y la pasión.</p>
+    <h4>Serie de ejemplos para comprender la pila MEGVN de tecnologías.</h4>
+    <section class="align--left">
+      <p>MEGVN hace referencia a:</p>
+      <ul>
+        <li>MySql</li>
+        <li>Express</li>
+        <li>GraphQL</li>
+        <li>Vue</li>
+        <li>Node</li>
+      </ul>
     </section>
   </div>
 </template>
@@ -21,23 +28,7 @@ export default {
 <style scoped lang="scss">
 @import "../assets/styles/main.scss";
 
-.landing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-
-  @include breakpoint(desktop) {
-    margin: 0 auto;
-    max-width: 640px;
-  }
-}
-
 h4 {
   font-style: italic;
-}
-
-.landing__section--mision {
-  text-align: left;
 }
 </style>

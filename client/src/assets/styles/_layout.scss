@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  @include breakpoint(desktop) {
+    margin: 0 auto;
+    max-width: $max-width;
+  }
+}
+
+.align--left {
+  text-align: left;
+}

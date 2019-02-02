@@ -7,8 +7,8 @@ html {
 }
 
 body {
-  background-color: $concrete;
-  color: #333;
+  background-color: white;
+  color: $mineshaft;
   font-family: 'Fira Sans';
   font-weight: 400;
   line-height: 1.45;
@@ -63,4 +63,17 @@ h6 {
 
 small, .font_small {
   font-size: 0.707em;
+}
+
+code {
+  background-color: $concrete;
+  color: $nevada;
+  padding: 3px 5px;
+}
+
+pre {
+  background-color: $concrete;
+  color: $nevada;
+  padding: 3px 5px;
+  overflow-x: scroll;
 }
