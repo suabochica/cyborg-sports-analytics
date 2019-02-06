@@ -27,7 +27,7 @@
       <ol>
         <li>Correr el comando <code>cd client</code></li>
         <li>Correr el comando <code>npm run serve</code></li>
-        <li>Abrir en el navegador la ruta <code>http://localhost:3000</code></li>
+        <li>Abrir en el navegador la ruta <code>http://localhost:8080</code></li>
       </ol>
 
       <h2>Características</h2>

@@ -1,80 +1,83 @@
 <template>
-  <div class="reports">
-    <h1>Reportes</h1>
-    <p> A continuación compartimos los reportes realizados sobre los movimientos de algunos esgrimistas</p>
-    <table class="reports__table">
-      <thead>
-        <tr>
-          <th>Nombre Completo</th>
-          <th>Nacionalidad</th>
-          <th>Ranking</th>
-          <th>Reporte</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Pepito Henriquez</td>
-          <td>COL</td>
-          <td>1</td>
-          <td><a class="reports__button" href="/reports/henriquez_col.pdf" download>Decargar</a></td>
-        </tr>
-        <tr>
-          <td>Juanito Quintero</td>
-          <td>VEN</td>
-          <td>1</td>
-          <td><a class="reports__button" href="/reports/quintero_ven.pdf" download>Decargar</a></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="reports content">
+    <section class="align--left">
+      <h1>Ejemplo Blog</h1>
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Configurar <code>Node</code> para poder utilizar <code>GraphQL</code> como lenguaje de sentencias para consultar datos a través de peticiones que se envían desde el cliente con <code>axios</code> y <code>vue</code></li>
+        <li>Integrar eventos emitidos desde el cliente con formularios web que realicen consultas en el servidor</li>
+        <li>Desarrollar los conceptos de <i>modelo</i>, <i>tipos</i> y <i>shcemas</i> de GraphQL</li>
+        <li>Configurar <code>Express</code> y <code>Sequelize</code> para conectarse y posteriormente interactuar con una base de datos creada con <code>MySQL</code></li>
+      </ul>
+      <p>Por tanto las tecnologias utilizadas en este ejemplo son:</p>
+      <ul>
+        <li>Vue</li>
+        <li>Axios</li>
+        <li>Express</li>
+        <li>GraphQL</li>
+        <li>Sequelize</li>
+        <li>MySQL</li>
+        <li>Node</li>
+      </ul>
+
+      <h2>Montaje</h2>
+      <h6>Servidor</h6>
+      <ol>
+        <li>Correr el comando <code>node server/blog/blogServer.js</code></li>
+        <li>Abrir en el navegador la ruta <code>http://localhost:4000/graphql</code></li>
+      </ol>
+      <h6>Cliente</h6>
+      <ol>
+        <li>Correr el comando <code>cd client</code></li>
+        <li>Correr el comando <code>npm run serve</code></li>
+        <li>Abrir en el navegador la ruta <code>http://localhost:8080</code></li>
+      </ol>
+
+      <h2>Características</h2>
+      <p>Este ejemplo tiene unos botones a nivel del cliente que van a activar un evento para realizar una consulta de los datos que se encuentran en el servidor</p>
+      <p>El servidor se conectara a la base de datos y recuperará la informacion almacendada</p>
+
+      <h2>Formularios</h2>
+      <h6>Example 1: Obtener personas</h6>
+        <div>
+        Data:
+        <div v-for="person in people" v-bind:key="person.id">
+          {{ person }}
+        </div>
+      </div>
+      <button @click="getPeople">Get People</button>
+      <hr>
+    </section>
   </div>
 </template>
 
-<style scoped lang="scss">
-@import "../assets/styles/main.scss";
+<script>
+import axios from "axios";
 
-h1 {
-  color: $bluelagoon;
-}
+export default {
+  name: "app",
 
-p {
-  text-align: left;
-}
+  data() {
+    return {
+      people: [],
+      person: {}
+    };
+  },
 
-.reports {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 16px;
-  width: 100%;
+  methods: {
+    async getPeople() {
+      const response = await axios.post("http://localhost:3000/graphql", {
+        query: `{
+          people {
+            id,
+            firstName,
+            lastName
+          }
+        }`
+      });
 
-  @include breakpoint(desktop) {
-    margin: 0 auto;
-    max-width: 640px;
+      this.people = response.data.data;
+    }
   }
-}
-
-.reports__table {
-  overflow-x: auto;
-
-  @include breakpoint(desktop) {
-    overflow: hidden;
-  }
-}
-
-.reports__button {
-  background-color: $pizzas;
-  border: none;
-  color: $concrete;
-  font-family: "Fira Sans", Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 1em;
-  padding: 2px 8px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background-color ease-in 0.3s;
-
-  &:hover {
-    background-color: $pizzas-opacity;
-  }
-}
-</style>
+};
+</script>

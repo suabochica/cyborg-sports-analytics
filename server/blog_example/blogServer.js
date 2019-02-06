@@ -6,7 +6,7 @@ const Schema = require('./blogSchema')
 
 // Create the Server. Minute 26:46 of the video.
 // Config
-const APP_PORT = 3000
+const APP_PORT = 4000
 
 // Start
 const app = Express()

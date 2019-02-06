@@ -8,16 +8,6 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
-
-    <h3>Example 5</h3>
-    <div>
-      Data:
-      <div v-for="person in people" v-bind:key="person.id">
-        {{ person }}
-      </div>
-    </div>
-    <button @click="getPeople">Get People</button>
-    <hr>
   </div>
 </template>
 
@@ -45,34 +35,3 @@
   }
 }
 </style>
-
-<script>
-import axios from "axios";
-
-export default {
-  name: "app",
-
-  data() {
-    return {
-      people: [],
-      person: {}
-    };
-  },
-
-  methods: {
-    async getPeople() {
-      const response = await axios.post("http://localhost:3000/graphql", {
-        query: `{
-          people {
-            id,
-            firstName,
-            lastName
-          }
-        }`
-      });
-
-      this.people = response.data.data;
-    }
-  }
-};
-</script>
