@@ -135,7 +135,7 @@ export default {
       });
 
       this.updatedChampion = response.data.data.updateAttackDamage;
-    },
+    }
   }
 };
 </script>
