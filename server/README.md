@@ -1,4 +1,4 @@
-# BOS Server
+# Express Server
 
 ## Project setup
 ```

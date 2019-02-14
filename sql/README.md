@@ -2,7 +2,7 @@
 - Database: MySQL
 
 ## Database info
-- Database name: esgrima/blog
+- Database name: `blog`
 - Database user: bos_user
 - Database password: bos_***
 

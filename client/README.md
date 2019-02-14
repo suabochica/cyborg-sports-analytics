@@ -1,4 +1,4 @@
-# BOS client
+# Vue client
 
 ## Project setup
 ```
